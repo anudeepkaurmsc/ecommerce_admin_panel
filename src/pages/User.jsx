@@ -11,8 +11,17 @@ export default function Users() {
     
   return (
     <div>
-      <h1 className="text-2xl">Users Page</h1>
-        <UsersTable />
-    </div>  
+      <div className="flex justify-between">
+         <h1 className="text-2xl">Users Page</h1>
+        <button 
+          onClick = {() => Navigate("/add-user")}
+          className="bg-blue-600 text-white px-4 py-2 rounded">
+            Add User
+        </button>
+       </div>
+          <UsersTable />
+      </div> 
+      
+    
   );
 }

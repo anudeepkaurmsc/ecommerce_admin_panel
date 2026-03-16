@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../api/authApi";
+import { useEffect } from "react";
 
 
 export default function Login() {
+  const login =()=>{
+    localStorage.setItem("token",true);
+     navigate("/");
+  }
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -16,11 +21,20 @@ export default function Login() {
       console.log(response.data); 
     
       localStorage.setItem("token", response.data.token); 
-      navigate("/admin/Users");
+      navigate("/admin/users");
     }catch (error) {
       console.error("Login failed:", error);
     }
   };
+ useEffect(() => {
+
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    navigate("/admin/users");
+  }
+
+}, []);
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">

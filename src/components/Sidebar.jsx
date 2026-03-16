@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink} from "react-router-dom";
+import {  NavLink} from "react-router-dom";
 import { FaBox, FaShoppingCart, FaSignOutAlt, FaTachometerAlt, FaUsers } from "react-icons/fa";
 export default function Sidebar() {
   return (

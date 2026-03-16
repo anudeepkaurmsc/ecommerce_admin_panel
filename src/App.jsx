@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import AddUser from "./pages/AddUser";
 import Users from "./pages/User";
+import Protected from "./components/protected_route";
 
 function App() {
   return (
@@ -12,12 +13,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="users" element={<Users />} />
-        <Route path="add-user" element={<AddUser />} />
+        <Route element={<Protected />}>
+          <Route path="/admin" element={<AdminLayout/>} >
+            <Route path="dashboard" element={ <Dashboard />} />
+            <Route path="users" element={ <Users />} />
+            <Route path="add-user" element={<AddUser  />} />
+          </Route>
         </Route>
-
       </Routes>
 
     </BrowserRouter>

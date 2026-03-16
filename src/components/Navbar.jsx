@@ -24,12 +24,7 @@ export default function Navbar() {
         <FaSearch className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />  
       </div>
        
-      <button 
-         onClick = {() => Navigate("/add-user")}
-         className="bg-blue-600 text-white px-4 py-2 rounded">
-        Add User
-      </button>
-
+      
     </div>
   );
 }
