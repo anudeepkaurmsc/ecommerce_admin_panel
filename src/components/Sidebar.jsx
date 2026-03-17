@@ -1,7 +1,14 @@
 import React from "react";
-import {  NavLink} from "react-router-dom";
+import {  NavLink,useNavigate} from "react-router-dom";
 import { FaBox, FaShoppingCart, FaSignOutAlt, FaTachometerAlt, FaUsers } from "react-icons/fa";
 export default function Sidebar() {
+  const navigate = useNavigate();
+
+  // ✅ Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // ✅ clear token
+    navigate("/");                     // ✅ go to login page
+  };
   return (
     <div className="w-64  bg-gray-900 text-white p-5">
 
@@ -71,7 +78,12 @@ export default function Sidebar() {
               }}
             >
               <FaSignOutAlt/>
-              Logout
+              <button
+              onClick={handleLogout}
+              className="flex items-center gap-3 px-4 py-3 rounded-lg transition hover:bg-gray-700 text-left mt-auto"
+            >
+                  Logout
+              </button>
             </NavLink>
         </li>
       </ul>

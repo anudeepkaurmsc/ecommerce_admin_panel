@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import AddUser from "./pages/AddUser";
 import Users from "./pages/User";
 import Protected from "./components/protected_route";
-
+import Logout from "./pages/Logout"; 
 function App() {
   return (
 
@@ -18,6 +18,7 @@ function App() {
             <Route path="dashboard" element={ <Dashboard />} />
             <Route path="users" element={ <Users />} />
             <Route path="add-user" element={<AddUser  />} />
+             <Route path="admin/logout" element={<Logout />} />
           </Route>
         </Route>
       </Routes>
