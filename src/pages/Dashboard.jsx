@@ -1,9 +1,9 @@
 
-import UsersTable from "../components/UsersTable";
+
+import UsersTable from "./UsersTable";
 import { Navigate } from "react-router-dom";
 
-
-export default function Users() {
+export default function Dashboard() {
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -13,7 +13,7 @@ export default function Users() {
   return (
     <div>
       <h1 className="text-2xl">Dashboard Page</h1>
-        <UsersTable />
+      <UsersTable />
     </div>  
   );
 }

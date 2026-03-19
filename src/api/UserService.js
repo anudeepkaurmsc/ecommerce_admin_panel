@@ -10,10 +10,11 @@ export const getUsers = () =>{
 };
 
  export const registerUser = (data) =>{
-    return axios.post("https://localhost:3000/api/v1/register",data,{
+    const token = localStorage.getItem("token");
+    return axios.post("http://localhost:3000/api/v1/register",data,{
         headers:{
-            Authorization: `Bearer ${token}`
-
+          "Content-Type": "application/json", 
+          Authorization: `Bearer ${token}` 
         }
     })
  }
