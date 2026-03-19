@@ -3,16 +3,16 @@ import AdminLayout from "./layout/AdminLayout";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import AddUser from "./pages/AddUser";
+import Users from "./pages/UsersTable";
 import Protected from "./components/protected_route";
 import Logout from "./pages/Logout"; 
-import UsersTable from "./pages/UsersTable";
 function App() {
   return (
 
     <BrowserRouter>
 
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route element={<Protected />}>
           <Route path="/admin" element={<AdminLayout/>} >
             <Route path="dashboard" element={ <Dashboard />} />

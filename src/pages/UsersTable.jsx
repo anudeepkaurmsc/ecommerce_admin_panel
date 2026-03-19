@@ -1,6 +1,8 @@
 import React from 'react'
 import{FiEdit,FiTrash2} from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 function UsersTable() {
+   const navigate =useNavigate();
     const users = [
     { id: 1, name: "John Doe", email: "johndoe@example.com", role: "Admin", status: "Active", created: "21 Oct 2021", avatar: "JD" },   
     { id: 2, name: "Jane Smith", email: "janesmith@example.com", role: "Customer", status: "Active", created: "21 Oct 2021", avatar: "JS" },
@@ -12,16 +14,16 @@ function UsersTable() {
     "bg-amber-500", "bg-rose-500", "bg-sky-500", "bg-emerald-500", "bg-violet-500",
   ];
   return (
-        <div>
-         <div className='flex justify-between mb-4'>
-             <h1 className="text-2xl">Users Table</h1>
+      
+         <div className='flex justify-between  item-center mb-4'>
+             <h1 className="text-2xl font-bold">Users Table</h1>
               <button 
-                onClick = {() => Navigate("/add-user")}
+                onClick = {() => navigate("/admin/add-user")}
                  className="bg-blue-600 text-white px-4 py-2 rounded">
                 Add User
               </button>          
          </div> 
-         <div className='w-full  bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100'>
+         < className='  bg-white rounded-xl shadow overflow-hidden border border-slate-100'>
            <table className="w-full text-left">
             <thead>
               <tr className="bg-gray-200 border-b border-slate-100">
@@ -83,59 +85,24 @@ function UsersTable() {
                 ))}       
               </tbody>
             </table>
-          </div>        
+            <div className="flex justify-between items-center mt-6 text-sm text-gray-600">
+        <p>Showing 1 to {users.length} results</p>
+        <div className="flex items-center gap-2">
+          <button className="px-3 py-1 border rounded">1</button>
+          <button className="px-3 py-1 bg-blue-600 text-white rounded">2</button>
+          <button className="px-3 py-1 border rounded">3</button>
         </div>
+        <div className="flex gap-2">
+          <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+            Previous
+          </button>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+            Next
+          </button>
+        </div>
+          </div>        
        
         )
       }
 
       export default UsersTable
-// import { useState } from "react";
-
-
-// export default function UserTable() {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const totalPages = 3;
-
-//   return (
-
-//         {/* Footer / Pagination */}
-//         <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between">
-//           <p className="text-sm text-slate-400">
-//             Showing <span className="font-medium text-slate-600">1 to 5</span> of <span className="font-medium text-slate-600">25</span> users
-//           </p>
-
-//           <div className="flex items-center gap-1.5">
-//             <button
-//               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-//               className="px-3 py-1.5 text-sm text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors duration-150 font-medium"
-//             >
-//               Previous
-//             </button>
-
-//             {[1, 2, 3].map((page) => (
-//               <button
-//                 key={page}
-//                 onClick={() => setCurrentPage(page)}
-//                 className={`w-8 h-8 text-sm rounded-lg font-medium transition-colors duration-150 ${
-//                   currentPage === page
-//                     ? "bg-indigo-600 text-white shadow-sm"
-//                     : "text-slate-500 hover:bg-slate-100 hover:text-slate-800"
-//                 }`}
-//               >
-//                 {page}
-//               </button>
-//             ))}
-
-//             <button
-//               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-//               className="px-3 py-1.5 text-sm text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors duration-150 font-medium"
-//             >
-//               Next
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
