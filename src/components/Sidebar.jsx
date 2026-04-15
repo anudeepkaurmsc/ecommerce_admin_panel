@@ -4,10 +4,10 @@ import { FaBox, FaShoppingCart, FaSignOutAlt, FaTachometerAlt, FaUsers } from "r
 export default function Sidebar() {
   const navigate = useNavigate();
 
-  // ✅ Logout function
+
   const handleLogout = () => {
-    localStorage.removeItem("token"); // ✅ clear token
-    navigate("/");                     // ✅ go to login page
+    localStorage.removeItem("token"); 
+    navigate("/");                     
   };
   return (
     <div className="w-64  bg-gray-900 text-white p-5">

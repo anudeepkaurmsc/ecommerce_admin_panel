@@ -21,8 +21,10 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await loginUser({ email, password });
-      localStorage.setItem("token", response.data.token);
+       localStorage.setItem("token", response.data.token);
+      // console.log("Login successful:", response.data.token);
       navigate("/admin/users");
+      
     } catch (error) {
       console.error("Login failed:", error);
     }
